@@ -1,0 +1,63 @@
+linux下隐藏文件以.开头 如.123.txt
+属性可以连着写 如 ls -lha
+
+通配符:
+*(代表任意个数个字符)
+？(代表任意一个字符，至少一个)
+[](表示可以匹配字符组中的任意一个)
+[abc]（表现匹配abc中的任意一个）
+[a-f]匹配从a到f范围内的任意一个字符(a,b,c,d,e,f,)
+
+ls  /查看当前目录文件  -a(显示所有文件，包括隐藏) -l(显示详细信息) -h(配合-l显示文件大小)
+tree /以树状图形式查看文件目录信息
+pwd /查看当前目录路径
+clear /情况屏幕
+touch 文件名称 /创建文件 
+cd 目录名称 /切换目录  .(当前目录) ..(上一级目录)
+mkdir 目录名称 /新建目录 -p(强制创建文件)
+rm 文件名称 //删除文件，目录 删除的文件不会放到回收站 -r(强制删除)
+
+command --help /显示帮助信息
+man command  /显示帮助信息，man manual缩写
+
+
+cp 源文件url 目标文件url /复制文件，如果不需要改名，后面的url可以不加文件名 -r(强制复制)
+mv 源文件url 目标文件url /移动文件，如果不需要改名，后面的url可以不加文件名 如果路径不变就相当于重命名
+
+cat 文件名 /打开文件，如：cat 123.txt -n,-r(显示行号)
+more 文件名 /打开文件(分屏显示)，如：cat 123.txt
+
+grep 关键词 文件名 /在文件中查找相应关键词，高亮显示，如grep as 123.txt -n(显示行号) -v(显示不含有关键词的行) -i(忽略大小写)
+
+echo /在终端窗口显示紧接着的文本 >(把内容输出到文件，覆盖) >>(把内容输出到文件，覆盖) 如：echo hello > 123.txt
+
+> >> /配合其他命令使用，把将要输出到命令行的数据输出到指定文件，如:echo hello > 12.txt ,ls -hl > 123.txt
+
+管道| /将一个命令的输出作为另一个命令的输入 如:ls -hla | more
+
+shutdown /关机 默认六十秒后，-c(取消关机) -r(重启) -r now（马上重启）+10(十分钟后关机) 20:50(20:50关机)
+
+ifconfig /相当于windows的ipconfig
+
+ssh -p 端口号 用户名@远程端ip /远程登陆  //高级技巧：免密码登录，配置别名
+
+scp /远程文件拷贝
+scp -P 端口号 本地文件路径 用户名@远程端ip:目标文件路径
+srp -P port 01.py user@remote:Desktop/01.py
+scp -P port user@remote:Desktop/01.py 01.py
+scp -P port -r demo user@remote:Desktop
+scp -P port -r user@remote:Desktop demo
+
+FileZilla /window下ftp服务软件
+
+chmod +/- rwx 文件名·目录名 /修改访问权限 如：chmod -w 1.txt
+
+要在命令前加sudo
+groupadd 组名 //添加组
+groupdel 组名 //删除组
+cat /etc/group //确认组信息，/etc/group 是存放组信息的目录
+chgrp -R 组名 文件/目录名 //递归修改文件/目录的所属组
+
+用户
+useradd 用户名 //添加用户 -m(自动建立用户家目录) -g(用户所属组)
+password 用户名 //添加密码
